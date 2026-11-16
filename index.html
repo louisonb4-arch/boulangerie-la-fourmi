@@ -16,7 +16,7 @@
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="preload" href="/fonts/instrument-serif.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/fonts/instrument-sans-400.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/css/styles.min.css?v=3becd344">
+<link rel="stylesheet" href="/css/styles.min.css?v=a4b95530">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Bakery","name":"Boulangerie La Fourmi","image":"https://lafourmi-site.vercel.app/images/og.jpg","url":"https://lafourmi-site.vercel.app/","telephone":"+33966646943","address":{"@type":"PostalAddress","streetAddress":"1 Chaussée de la Madeleine","postalCode":"44000","addressLocality":"Nantes","addressCountry":"FR"},"geo":{"@type":"GeoCoordinates","latitude":47.2123936,"longitude":-1.5525585},"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"07:00","closes":"19:00"}],"priceRange":"€","servesCuisine":"Boulangerie","sameAs":["https://www.instagram.com/boulangerielafourmi/","https://www.facebook.com/profile.php?id=100092674192375"]}</script>
 <script>document.documentElement.className+=' js'</script>
 </head>
@@ -44,7 +44,8 @@
 </header>
 <nav class="drawer" id="drawer" aria-label="Menu" aria-hidden="true">
   <a href="#savoir-faire">Savoir-faire</a><a href="#four">Le four</a><a href="#primes">Primés</a><a href="#histoire">Histoire</a><a href="#infos">Infos</a>
-  <p>1 Chaussée de la Madeleine, Nantes<br>Lun–ven · 7h–19h · 09 66 64 69 43</p>
+  <div class="drawer__info"><span class="status" data-status><i></i><span data-status-txt>Lun–ven · 7h–19h</span></span><p>1 Chaussée de la Madeleine, Nantes<br>Lun–ven · 7h–19h</p>
+  <div class="drawer__btns"><a class="btn btn--ink" href="tel:+33966646943">Appeler</a><a class="btn btn--line" href="https://www.google.com/maps/search/?api=1&amp;query=Boulangerie%20La%20Fourmi%201%20Chauss%C3%A9e%20de%20la%20Madeleine%20Nantes" target="_blank" rel="noopener">Itinéraire</a></div></div>
 </nav>
 
 <main id="main">
@@ -110,7 +111,7 @@
   </div>
   <div class="racks">
     <div class="rack" data-rack="1">
-      <p class="rack__name">Les pains</p>
+      <p class="rack__name">Les pains <span class="rack__hint">Glissez →</span></p>
       <div class="rack__row">
         <article class="item"><div class="item__ph"><picture><source type="image/avif" srcset="/images/miche-700.avif 700w, /images/miche-1200.avif 1200w" sizes="(max-width:760px) 92vw, 700px"><source type="image/webp" srcset="/images/miche-700.webp 700w, /images/miche-1200.webp 1200w" sizes="(max-width:760px) 92vw, 700px"><img src="/images/miche-1200.jpg" srcset="/images/miche-700.jpg 700w, /images/miche-1200.jpg 1200w" sizes="(max-width:760px) 92vw, 700px" alt="Miche au levain au pochoir de la fourmi" width="1200" height="944" loading="lazy" decoding="async"></picture></div><div class="label"><h3>La miche Fourmi</h3><p>Levain dur T80, blés anciens bio. Signée au pochoir.</p></div></article>
         <article class="item"><div class="item__ph"><picture><source type="image/avif" srcset="/images/baguettes-700.avif 700w, /images/baguettes-1200.avif 1200w" sizes="(max-width:760px) 92vw, 700px"><source type="image/webp" srcset="/images/baguettes-700.webp 700w, /images/baguettes-1200.webp 1200w" sizes="(max-width:760px) 92vw, 700px"><img src="/images/baguettes-1200.jpg" srcset="/images/baguettes-700.jpg 700w, /images/baguettes-1200.jpg 1200w" sizes="(max-width:760px) 92vw, 700px" alt="Baguettes sur les étagères" width="937" height="522" loading="lazy" decoding="async"></picture></div><div class="label"><h3>La baguette</h3><p>Pétrie avec des farines T65 et T80, chaude dès 7h.</p></div></article>
@@ -118,7 +119,7 @@
       </div>
     </div>
     <div class="rack" data-rack="-1">
-      <p class="rack__name">Les viennoiseries</p>
+      <p class="rack__name">Les viennoiseries <span class="rack__hint">Glissez →</span></p>
       <div class="rack__row">
         <article class="item"><div class="item__ph"><picture><source type="image/avif" srcset="/images/croissants-700.avif 700w, /images/croissants-1200.avif 1200w" sizes="(max-width:760px) 92vw, 700px"><source type="image/webp" srcset="/images/croissants-700.webp 700w, /images/croissants-1200.webp 1200w" sizes="(max-width:760px) 92vw, 700px"><img src="/images/croissants-1200.jpg" srcset="/images/croissants-700.jpg 700w, /images/croissants-1200.jpg 1200w" sizes="(max-width:760px) 92vw, 700px" alt="Croissants dorés" width="1090" height="1088" loading="lazy" decoding="async"></picture></div><div class="label"><h3>Le croissant</h3><p>Beurre AOP du Poitou, farine label rouge, levain naturel.</p></div></article>
         <article class="item"><div class="item__ph"><picture><source type="image/avif" srcset="/images/brioches-700.avif 700w, /images/brioches-1200.avif 1200w" sizes="(max-width:760px) 92vw, 700px"><source type="image/webp" srcset="/images/brioches-700.webp 700w, /images/brioches-1200.webp 1200w" sizes="(max-width:760px) 92vw, 700px"><img src="/images/brioches-1200.jpg" srcset="/images/brioches-700.jpg 700w, /images/brioches-1200.jpg 1200w" sizes="(max-width:760px) 92vw, 700px" alt="Brioches perlées en barquette" width="1088" height="1087" loading="lazy" decoding="async"></picture></div><div class="label"><h3>La brioche</h3><p>Moelleuse et perlée de sucre, à la coupe.</p></div></article>
@@ -126,7 +127,7 @@
       </div>
     </div>
     <div class="rack" data-rack="1">
-      <p class="rack__name">Douceurs &amp; midi</p>
+      <p class="rack__name">Douceurs &amp; midi <span class="rack__hint">Glissez →</span></p>
       <div class="rack__row">
         <article class="item"><div class="item__ph"><picture><source type="image/avif" srcset="/images/flans-700.avif 700w, /images/flans-1200.avif 1200w" sizes="(max-width:760px) 92vw, 700px"><source type="image/webp" srcset="/images/flans-700.webp 700w, /images/flans-1200.webp 1200w" sizes="(max-width:760px) 92vw, 700px"><img src="/images/flans-1200.jpg" srcset="/images/flans-700.jpg 700w, /images/flans-1200.jpg 1200w" sizes="(max-width:760px) 92vw, 700px" alt="Flans à la vanille de Tahiti" width="1090" height="1088" loading="lazy" decoding="async"></picture><span class="medal">3<sup>e</sup></span></div><div class="label"><h3>Le flan vanille</h3><p>Vanille de Tahiti. 3<sup>e</sup> meilleur flan de Nantes.</p></div></article>
         <article class="item"><div class="item__ph"><picture><source type="image/avif" srcset="/images/cookies-700.avif 700w, /images/cookies-1200.avif 1200w" sizes="(max-width:760px) 92vw, 700px"><source type="image/webp" srcset="/images/cookies-700.webp 700w, /images/cookies-1200.webp 1200w" sizes="(max-width:760px) 92vw, 700px"><img src="/images/cookies-1200.jpg" srcset="/images/cookies-700.jpg 700w, /images/cookies-1200.jpg 1200w" sizes="(max-width:760px) 92vw, 700px" alt="Cookies aux pistoles de chocolat" width="1088" height="1087" loading="lazy" decoding="async"></picture><span class="medal medal--or">Or</span></div><div class="label"><h3>Le cookie</h3><p>Médaille d’or, Fête du Pain de Nozay.</p></div></article>
@@ -144,14 +145,14 @@
       <p class="kicker r-up">Primés</p>
       <h2 class="prize__t" id="prize-t"><span class="ln"><span>Deux ans,</span></span> <span class="ln"><span><em>déjà sur les podiums.</em></span></span></h2>
     </div>
-    <div class="awards">
+    <div class="awards" id="awards">
       <article class="aw pop"><div class="aw__ph"><picture><source type="image/avif" srcset="/images/benjamin-700.avif 700w, /images/benjamin-1200.avif 1200w" sizes="(max-width:760px) 92vw, 600px"><source type="image/webp" srcset="/images/benjamin-700.webp 700w, /images/benjamin-1200.webp 1200w" sizes="(max-width:760px) 92vw, 600px"><img src="/images/benjamin-1200.jpg" srcset="/images/benjamin-700.jpg 700w, /images/benjamin-1200.jpg 1200w" sizes="(max-width:760px) 92vw, 600px" alt="Benjamin, chef boulanger, montre un cookie devant la vitrine" width="976" height="1220" loading="lazy" decoding="async"></picture><span class="medal medal--or medal--lg">Or</span></div><div class="label"><h3>Meilleur cookie de Loire-Atlantique</h3><p>Médaille d’or à la Fête du Pain de Nozay, pour Benjamin, notre chef boulanger.</p></div></article>
       <article class="aw pop"><div class="aw__ph"><picture><source type="image/avif" srcset="/images/flanfeuil-700.avif 700w, /images/flanfeuil-1200.avif 1200w" sizes="(max-width:760px) 92vw, 600px"><source type="image/webp" srcset="/images/flanfeuil-700.webp 700w, /images/flanfeuil-1200.webp 1200w" sizes="(max-width:760px) 92vw, 600px"><img src="/images/flanfeuil-1200.jpg" srcset="/images/flanfeuil-700.jpg 700w, /images/flanfeuil-1200.jpg 1200w" sizes="(max-width:760px) 92vw, 600px" alt="Flans feuilletés photographiés par Nova Food" width="780" height="1390" loading="lazy" decoding="async"></picture><span class="medal medal--lg">3<sup>e</sup></span></div><div class="label"><h3>Meilleur flan de Nantes</h3><p>Notre flan à la vanille de Tahiti, sur le podium de la ville.</p></div></article>
       <article class="aw pop"><div class="aw__ph"><picture><source type="image/avif" srcset="/images/painsmur-700.avif 700w, /images/painsmur-1200.avif 1200w" sizes="(max-width:760px) 92vw, 600px"><source type="image/webp" srcset="/images/painsmur-700.webp 700w, /images/painsmur-1200.webp 1200w" sizes="(max-width:760px) 92vw, 600px"><img src="/images/painsmur-1200.jpg" srcset="/images/painsmur-700.jpg 700w, /images/painsmur-1200.jpg 1200w" sizes="(max-width:760px) 92vw, 600px" alt="L’atelier de boulangerie et ses étagères" width="1090" height="1088" loading="lazy" decoding="async"></picture><span class="medal medal--lg medal--gm">G&amp;M</span></div><div class="label"><h3>Sélection Gault&amp;Millau</h3><p>« Un cadre attrayant de véritable atelier de boulangerie. »</p></div></article>
     </div>
     <div class="reviews">
       <div class="score r-up"><b>4,9</b><span class="stars" aria-hidden="true">★★★★★</span><span class="score__n">281 avis Google</span></div>
-      <div class="notes">
+      <div class="notes" id="notes">
         <figure class="note pop"><blockquote>Une pâte à croissant délicieuse qu’on retrouve dans les fingers et les flans.</blockquote><figcaption>Nenna D.</figcaption></figure>
         <figure class="note pop"><blockquote>Le flan mérite clairement sa réputation sur la ville.</blockquote><figcaption>Philippe L.</figcaption></figure>
         <figure class="note pop"><blockquote>Je ne savais pas que j’allais tomber sur LA boulangerie !</blockquote><figcaption>Romain E.</figcaption></figure>
@@ -219,6 +220,12 @@
   </div>
 </footer>
 
-<script src="/js/main.min.js?v=6e4d4153" defer></script>
+
+<div class="mbar" id="mbar" aria-label="Accès rapide">
+  <span class="mbar__st" data-status><i></i><span data-status-txt>Lun–ven 7h–19h</span></span>
+  <a class="mbar__b" href="tel:+33966646943"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15 15 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1l-2.3 2.2Z" fill="currentColor"/></svg>Appeler</a>
+  <a class="mbar__b mbar__b--gold" href="https://www.google.com/maps/search/?api=1&amp;query=Boulangerie%20La%20Fourmi%201%20Chauss%C3%A9e%20de%20la%20Madeleine%20Nantes" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a7 7 0 0 0-7 7c0 5.2 7 13 7 13s7-7.8 7-13a7 7 0 0 0-7-7Zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5Z" fill="currentColor"/></svg>Itinéraire</a>
+</div>
+<script src="/js/main.min.js?v=ef4f6e8d" defer></script>
 </body>
 </html>

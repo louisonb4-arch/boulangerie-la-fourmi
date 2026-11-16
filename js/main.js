@@ -86,6 +86,16 @@
   }
   $$('.snap').forEach(function (el, i) { el.style.transitionDelay = (i * 0.08) + 's'; });
 
+  /* ---------- Mobile : rangées à glisser, compteurs, pile d'avis ---------- */
+  var small = w.matchMedia('(max-width: 760px)');
+  $$('.rack__row').forEach(function (row) {
+    var bar = d.createElement('div'); bar.className = 'rack__bar'; bar.innerHTML = '<i></i>'; row.parentNode.appendChild(bar);
+    row.addEventListener('scroll', function () {
+      var max = row.scrollWidth - row.clientWidth; bar.style.setProperty('--p', max > 0 ? (row.scrollLeft / max).toFixed(3) : 0);
+    }, { passive: true });
+  });
+  $('.brand').addEventListener('click', function (e) { e.preventDefault(); w.scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' }); });
+
   /* ---------- Menu ---------- */
   var burger = $('#burger'), drawer = $('#drawer');
   function menu(open) {
@@ -101,12 +111,14 @@
      Positions mesurées au chargement / redimensionnement, puis le défilement
      n'écrit que des transforms et des classes. */
   var hdr = $('#hdr'), hero = $('.hero'), prize = $('.prize'), racks = $$('[data-rack]'), cards = $$('#deck .card');
+  var mbar = $('#mbar'), infos = $('#infos'), lastBar = null;
   var pos = {}, lastY = 0, lastSolid = null, lastHidden = null, lastDark = null, ticking = false;
   function absTop(el) { var t = 0; while (el) { t += el.offsetTop; el = el.offsetParent; } return t; }
   function measure() {
     pos.vh = w.innerHeight;
     pos.heroEnd = hero.offsetHeight - 40;
     pos.prTop = absTop(prize); pos.prEnd = pos.prTop + prize.offsetHeight;
+    pos.inTop = absTop(infos); pos.inEnd = pos.inTop + infos.offsetHeight;
     pos.racks = racks.map(function (r) { return { el: r.querySelector('.rack__row'), top: absTop(r), h: r.offsetHeight, dir: +r.dataset.rack }; });
     pos.cards = cards.map(function (c) { return { el: c, top: absTop(c), h: c.offsetHeight, stick: parseFloat(getComputedStyle(c).top) || 96 }; });
   }
@@ -122,6 +134,7 @@
       if (hidden !== lastHidden) { hdr.classList.toggle('is-hidden', hidden); lastHidden = hidden; }
     }
     lastY = y;
+    if (mbar) { var showBar = y > pos.heroEnd * .55 && (y + vh < pos.inTop + 120 || y > pos.inEnd); if (showBar !== lastBar) { mbar.classList.toggle('is-on', showBar); lastBar = showBar; } }
     if (QA || reduce) { ticking = false; return; }
 
     /* cartes empilées : la carte recouverte recule doucement */

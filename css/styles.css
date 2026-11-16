@@ -32,7 +32,7 @@
   color-scheme:light;
 }
 *,*::before,*::after{box-sizing:border-box}
-html{-webkit-text-size-adjust:100%}
+html{-webkit-text-size-adjust:100%;overflow-x:clip}
 body{margin:0;background:var(--flour);color:var(--ink);font:400 17px/1.6 var(--sans);-webkit-font-smoothing:antialiased;overflow-x:hidden}
 img{display:block;max-width:100%}
 picture{display:contents}
@@ -101,7 +101,7 @@ em{font-family:var(--serif);font-style:italic}
 .btn--ghost:hover{background:var(--flour);color:var(--ink-2);border-color:var(--flour)}
 
 /* ============ Haut de page : le logo, puis le comptoir ============ */
-.hero{position:relative;background:var(--ink-2);color:var(--flour);z-index:2}
+.hero{position:relative;background:var(--ink-2);color:var(--flour);z-index:2;overflow-x:clip}
 .hero__stage{min-height:100svh;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:clamp(22px,3vh,36px);padding:110px var(--g) clamp(150px,22vh,230px);text-align:center}
 .hero__logo{width:min(1120px,88vw,calc((100svh - 400px) * 2.31));min-width:min(300px,88vw);will-change:transform;position:relative;z-index:3}
 .hero__wm{width:100%;height:auto;display:block;overflow:visible}
@@ -303,4 +303,100 @@ em{font-family:var(--serif);font-style:italic}
 }
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{transition-duration:.01ms!important;animation-duration:.01ms!important}
+}
+
+/* ============ Mobile : accès rapide, cartes à glisser ============ */
+.mbar,.rack__hint,.rack__bar{display:none}
+.drawer__info{margin-top:30px;display:grid;gap:14px;justify-items:start}
+.drawer__info p{margin:0}
+.drawer__btns{display:flex;gap:10px;flex-wrap:wrap}
+@media (max-width:760px){
+  /* 1. barre d'actions fixe */
+  .mbar{display:flex;position:fixed;left:10px;right:10px;bottom:calc(10px + env(safe-area-inset-bottom));z-index:70;align-items:center;gap:8px;padding:8px;background:rgba(255,255,255,.94);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-radius:999px;box-shadow:0 14px 34px -12px rgba(28,40,46,.45),0 0 0 1px rgba(38,54,62,.08);transform:translateY(160%);transition:transform .55s cubic-bezier(.3,1.35,.45,1)}
+  .mbar.is-on{transform:none}
+  .mbar__st{display:flex;align-items:center;gap:7px;padding:0 6px 0 10px;font:500 11px/1.15 var(--mono);letter-spacing:.04em;text-transform:uppercase;color:var(--ink);flex:1;min-width:0}
+  .mbar__st i{flex:none;width:8px;height:8px;border-radius:50%;background:#9AA0A5}
+  .mbar__st.is-open i{background:#5F8E4F;box-shadow:0 0 0 4px rgba(95,142,79,.18)}
+  .mbar__st .full{display:none}
+  .mbar__b{display:inline-flex;align-items:center;gap:7px;height:46px;padding:0 16px;border-radius:999px;background:var(--ink);color:var(--flour);text-decoration:none;font:500 14px/1 var(--sans);flex:none}
+  .mbar__b svg{width:16px;height:16px}
+  .mbar__b--gold{background:var(--gold);color:var(--ink-2)}
+  .foot{padding-bottom:96px}
+
+  /* 2. haut de page : le logo remplit l'écran, les produits en éventail */
+  .hero__stage{min-height:100svh;padding:88px 12px clamp(230px,33svh,290px);gap:18px;justify-content:center}
+  .hero__logo{width:calc(100vw - 20px)}
+  .hero__tag{font-size:20px;max-width:26ch}
+  .hero__cta{width:100%;max-width:360px;display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  .hero__cta .btn{justify-content:center;padding:0 12px;height:50px}
+  .strip{transform:none;bottom:22px;gap:0;padding:0;justify-content:center}
+  .snap,.snap:nth-child(4),.snap:nth-child(5){display:grid;width:31vw;margin:0 -4.2vw}
+  .snap:nth-child(1){--r:-11deg;margin-top:34px;z-index:1}
+  .snap:nth-child(2){--r:-5deg;margin-top:10px;z-index:2}
+  .snap:nth-child(3){--r:0deg;margin-top:0;z-index:3}
+  .snap:nth-child(4){--r:5deg;margin-top:10px;z-index:2}
+  .snap:nth-child(5){--r:11deg;margin-top:34px;z-index:1}
+  .snap__lb{display:none}
+  .snap:nth-child(3) .snap__lb{display:block;white-space:nowrap}
+  .snap__ph{border-width:4px;aspect-ratio:4/5}
+  .craft{padding-top:var(--sec)}
+
+  /* 3. savoir-faire : les cartes empilées, en compact */
+  .craft__head{gap:18px;margin-bottom:28px}
+  .deck{gap:16px}
+  .card{grid-template-columns:1fr;min-height:0;padding:8px 8px 2px;top:calc(78px + var(--i) * 12px);gap:0;border-radius:18px}
+  .card__ph{min-height:0;aspect-ratio:16/10.5;border-radius:12px}
+  .card__b{display:grid;grid-template-columns:auto 1fr;column-gap:14px;row-gap:6px;padding:16px 10px 18px;align-items:end}
+  .card__b .tag{grid-column:1/-1}
+  .card__big{font-size:54px;grid-row:span 1}
+  .card h3{font-size:22px;line-height:1.1;padding-bottom:6px}
+  .card p,.card .chips{grid-column:1/-1}
+  .card p{font-size:15px}
+  .chips li{font-size:15px;padding:7px 11px}
+
+  /* 4. primés : grille compacte */
+  .prize__head{margin-bottom:30px}
+  .awards{grid-template-columns:1fr 1fr;gap:12px}
+  .awards .aw:first-child{grid-column:1/-1}
+  .awards .aw:last-child{max-width:none;grid-column:auto}
+  .aw__ph{aspect-ratio:1/1}
+  .awards .aw:first-child .aw__ph{aspect-ratio:16/11}
+  .aw .label{margin-left:8px;max-width:calc(100% - 16px);padding:10px 12px 11px}
+  .aw .label h3{font-size:19px}
+  .aw .label p{font-size:12.5px}
+  .medal--lg{width:56px;height:56px;font-size:20px;top:10px;right:10px}
+  .medal--gm{font-size:15px}
+  .reviews{margin-top:60px;gap:26px}
+  .score{grid-template-columns:auto 1fr;align-items:end;column-gap:16px}
+  .score b{font-size:96px;grid-row:span 2}
+  .notes{grid-template-columns:1fr;gap:12px}
+  .note{padding:16px 18px}
+  .note blockquote{font-size:19px}
+
+  /* 5. histoire compacte : deux polaroïds qui se chevauchent */
+  .hist__grid{gap:40px}
+  .hist__ph{display:block;position:relative;height:118vw}
+  .hp{position:absolute}
+  .hp--old{left:0;top:0;width:62%}
+  .hp--new{right:0;bottom:0;width:64%;margin:0}
+  .hp .label{padding:8px 11px 9px;margin-left:10px}
+  .hp .label h3{font-size:19px}
+  .hp .label p{font-size:12px}
+
+  /* infos */
+  .infos__addr{font-size:46px}
+  .hours th,.hours td{padding:10px 0}
+
+  /* 6. le four : indications de défilement */
+  .rack__name{display:flex;justify-content:space-between}
+  .rack__hint{display:inline;color:rgba(38,54,62,.55)}
+  .rack__bar{display:block;height:2px;background:rgba(38,54,62,.12);margin-top:14px;border-radius:2px;overflow:hidden}
+  .rack__bar i{display:block;height:100%;width:34%;background:var(--gold-t);border-radius:2px;transform:translateX(calc(var(--p,0) * 194%));transition:transform .15s linear}
+  .label h3{font-size:22px}
+  .label p{font-size:14px}
+
+  /* 7. menu */
+  .drawer{justify-content:flex-end;padding-bottom:calc(30px + env(safe-area-inset-bottom))}
+  .drawer a{font-size:46px}
+  .drawer__btns .btn{font-size:15px;font-family:var(--sans)}
 }
