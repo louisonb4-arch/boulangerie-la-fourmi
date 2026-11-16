@@ -7,3 +7,4 @@ css/styles.css
 js/main.js
 build.sh
 serve.sh
+.env*

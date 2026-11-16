@@ -2,3 +2,5 @@ _v2/
 _v3/
 .DS_Store
 .vercel/
+.vercel
+.env*
